@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Carros</h1>
+
+<% if user_signed_in? %>
+  <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+<% end %>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<%= link_to "Importar Carros(.csv)", importacao_new_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Marca</th>
+      <th>Modelo</th>
+      <th>Disponivel</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @carros.each do |carro| %>
+      <tr>
+        <td><%= carro.id %></td>
+        <td><%= carro.marca %></td>
+        <td><%= carro.modelo %></td>
+        <td><%= carro.disponivel ? 'Sim' : 'Não' %></td>
+        <td><%= link_to 'Exibir', carro %></td>
+        <td><%= link_to 'Editar', edit_carro_path(carro) %></td>
+        <td><%= link_to 'Excluir', carro, method: :delete, data: { confirm: 'Deseja realmente Excluir o Registro?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Cadastrar Novo', new_carro_path %>

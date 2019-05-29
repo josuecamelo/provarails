@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dados - Reserva</h1>
+<p>
+    <strong>#</strong>
+    <%= @reserva.id %>
+</p>
+<p>
+    <strong>Responsável</strong>
+    <%= @reserva.responsavel %>
+</p>
+
+<p>
+    <strong>Marca</strong>
+    <%= @reserva.carro.marca %>
+</p>
+
+<p>
+    <strong>Modelo</strong>
+   <%= @reserva.carro.modelo %>
+</p>
+
+
+<p>
+    <strong>Data da Reserva</strong>
+    <%= @reserva.created_at.strftime("%d/%m/%Y") %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_reserva_path(@reserva) %> |
+<%= link_to 'Back', reservas_path %>

@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dados - Carro</h1>
+
+<p>
+    <strong>Marca</strong>
+    <%= @carro.marca %>
+</p>
+
+<p>
+    <strong>Modelo</strong>
+    <%= @carro.modelo %>
+</p>
+
+<p>
+    <strong>Disponível</strong>
+    <%= @carro.disponivel ? 'Sim' : 'Não' %>
+</p>
+
+<%= link_to 'Edit', edit_carro_path(@carro) %> |
+<%= link_to 'Back', carros_path %>
